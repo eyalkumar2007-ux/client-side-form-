@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+</head>
+<body style="text-align:center; font-family:Arial;">
+
+    <h2>Register Form</h2>
+
+    <form onsubmit="return validateForm()">
+        <input type="text" id="name" placeholder="Enter Name"><br><br>
+        <input type="email" id="email" placeholder="Enter Email"><br><br>
+        <input type="password" id="password" placeholder="Enter Password"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="error" style="color:red;"></p>
+
+    <script src="15.js">
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            let error = document.getElementById("error");
+
+            // Name check
+            if (name === "") {
+                error.innerText = "Name cannot be empty";
+                return false;
+            }
+
+            // Email check
+            if (!email.includes("@")) {
+                error.innerText = "Enter valid email";
+                return false;
+            }
+
+            // Password check
+            if (password.length < 6) {
+                error.innerText = "Password must be at least 6 characters";
+                return false;
+            }
+
+            alert("Form Submitted Successfully!");
+            return true;
+        }
+    </script>
+
+</body>
+</html>

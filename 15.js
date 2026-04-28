@@ -1,0 +1,1 @@
+if (!email.includes("@") || !email.includes(".")) {}
